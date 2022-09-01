@@ -8,7 +8,7 @@ public class ArrayListPractice {
      * @return The first element in the list.
      */
     public static int GetFirst(ArrayList<Integer> numbers) {
-
+        numbers.get(0);
         // write your code above and remove the line below
         throw new UnsupportedOperationException();
     }
