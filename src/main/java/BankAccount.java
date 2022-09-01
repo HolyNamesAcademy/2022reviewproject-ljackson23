@@ -12,8 +12,6 @@ public class BankAccount {
     {
         name = in_name;
         accountBalance= in_accountBalance;
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
     }
 
     /**
@@ -106,7 +104,7 @@ public class BankAccount {
         }
         else
             interest = accountBalance * numYears * interestRate;
-            return interest;
+        return interest;
     }
 
     /**
@@ -119,12 +117,12 @@ public class BankAccount {
      */
     public String toString()
     {
-        St
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        String str = "Name: " + name + "\nAccount Balance: " + accountBalance;
+        return str;
     }
 
     /**
+     *
      * NOTE: This is implemented for you. You do not have to implement this function.
      *
      * Compares two BankAccount objects. One BankAccount is considered to be equal to another if
