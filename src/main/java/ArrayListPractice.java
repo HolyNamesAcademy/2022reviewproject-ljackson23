@@ -40,8 +40,9 @@ public class ArrayListPractice {
      */
     public static int GetSum(ArrayList<Integer> numbers) {
         int sum = 0;
-        for(int i = 0; i<numbers.size(); i++){
-            sum+= numbers.get(i);}
+        for (Integer number : numbers) {
+            sum += number;
+        }
         return sum;
     }
 
@@ -69,9 +70,13 @@ String numberList = "";
      * @return The largest element in the list.
      */
     public static int GetMax(ArrayList<Integer> numbers) {
+        int max = numbers.get(0);
+        for(int i = 1; i<numbers.size()-1; i++){
+            if(max<numbers.get(i))
+                max = numbers.get(i);
+        }
+        return max;
 
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
     }
 
     /**
@@ -89,10 +94,21 @@ String numberList = "";
      * @return A list of all numbers between first and last.
      */
     public static ArrayList<Integer> CreateNumberArray(int first, int last) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
-    }
+        ArrayList<Integer> numList = new ArrayList<Integer> ();
+        if(first == last){
+            return numList;
+        }
+        if(first>last){
+            return numList;
+        }
+        else {
+            numList.add(first);
+            for (int i = 1; i < last; i++) {
+                int begin = first;
+                numList.add(begin++);
+                return numList;
+            }
+        }
 
     /**
      * Finds the first student whose favorite color is the one specified.
@@ -102,9 +118,10 @@ String numberList = "";
      * @return The first student whose favorite color is the one specified.
      */
     public static Student GetFirstStudentWithFavoriteColor(ArrayList<Student> students, String color) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        for(int i = 0; i<students.size(); i++){
+            if(students.get(i).getFavoriteColor().equals(color));
+                return students.get(i);
+        }
     }
 
     /**
@@ -127,9 +144,11 @@ String numberList = "";
      * @return The tallest student in the list.
      */
     public static Student GetTallestStudent(ArrayList<Student> students) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        double tallest = students.get(0).getHeight();
+        for(int i= 1; students.size()-1; i++){
+            if(students.get(i).getHeight()>tallest)
+                tallest = students.get(i).getHeight();
+            }
     }
 
     /**
@@ -236,3 +255,14 @@ String numberList = "";
         throw new UnsupportedOperationException();
     }
 }
+
+    public static String GetFavoriteColorOfStudent(ArrayList<Student> students, String name) {
+        string color = "";
+        for(int i = 0; i< students.size(), i++){
+            if(students.get(i).equals(name))
+                color =
+
+
+        }
+    }
+    }

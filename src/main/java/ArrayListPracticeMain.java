@@ -11,11 +11,8 @@ public class ArrayListPracticeMain {
         ArrayList<Integer> numbers = CreateIntegerArrayList();
         ArrayList<Student> students = CreateStudentArrayList();
 
-        /* Call ArrayListPractice functions here. For example:
-
         String favoriteColor = ArrayListPractice.GetFavoriteColorOfStudent(students, "Madison");
         System.out.println(favoriteColor);
-         */
     }
 
     /**
