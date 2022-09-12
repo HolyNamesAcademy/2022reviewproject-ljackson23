@@ -118,10 +118,8 @@ String numberList = "";
      * @return The first student whose favorite color is the one specified.
      */
     public static Student GetFirstStudentWithFavoriteColor(ArrayList<Student> students, String color) {
-        for(int i = 0; i<students.size(); i++){
-            if(students.get(i).getFavoriteColor().equals(color));
-                return students.get(i);
-        }
+            // write your code above and remove the line below
+            throw new UnsupportedOperationException();
     }
 
     /**
@@ -149,6 +147,8 @@ String numberList = "";
             if(students.get(i).getHeight()>tallest)
                 tallest = students.get(i).getHeight();
             }
+            // write your code above and remove the line below
+            throw new UnsupportedOperationException();
     }
 
     /**
