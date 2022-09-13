@@ -61,7 +61,7 @@ public class ShapeMaker {
         String pattern = "";
         for(int i= 1; i <= height; i++)
             pattern += "*";
-        return pattern
+        return pattern;
     }
 
     /**

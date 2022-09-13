@@ -94,14 +94,13 @@ String numberList = "";
      * @return A list of all numbers between first and last.
      */
     public static ArrayList<Integer> CreateNumberArray(int first, int last) {
-        ArrayList<Integer> numList = new ArrayList<Integer> ();
-        if(first == last){
+        ArrayList<Integer> numList = new ArrayList<Integer>();
+        if (first == last) {
             return numList;
         }
-        if(first>last){
+        if (first > last) {
             return numList;
-        }
-        else {
+        } else {
             numList.add(first);
             for (int i = 1; i < last; i++) {
                 int begin = first;
@@ -109,6 +108,8 @@ String numberList = "";
                 return numList;
             }
         }
+        return null;
+    }
 
     /**
      * Finds the first student whose favorite color is the one specified.
@@ -118,8 +119,11 @@ String numberList = "";
      * @return The first student whose favorite color is the one specified.
      */
     public static Student GetFirstStudentWithFavoriteColor(ArrayList<Student> students, String color) {
-            // write your code above and remove the line below
-            throw new UnsupportedOperationException();
+        for (Student student : students) {
+            if (student.GetfavoriteColor().equals(color))
+                return student;
+        }
+        return null;
     }
 
     /**
@@ -130,9 +134,11 @@ String numberList = "";
      * @return The favorite color of the specified student.
      */
     public static String GetFavoriteColorOfStudent(ArrayList<Student> students, String name) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        for (Student student : students) {
+            if (student.GetName().equals(name))
+                return student.GetFavoriteColor();
+        }
+        return null;
     }
 
     /**
@@ -142,13 +148,17 @@ String numberList = "";
      * @return The tallest student in the list.
      */
     public static Student GetTallestStudent(ArrayList<Student> students) {
-        double tallest = students.get(0).getHeight();
-        for(int i= 1; students.size()-1; i++){
-            if(students.get(i).getHeight()>tallest)
-                tallest = students.get(i).getHeight();
+        int tallest = stuents.get(0).GetHeight();
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).GetHeight() > tallest)
+                tallest = students.get(i).GetHeight();
+        }
+        for (Student student : students) {
+            if (student.GetHeight() == tallest) {
+                return student;
             }
-            // write your code above and remove the line below
-            throw new UnsupportedOperationException();
+        }
+        return null;
     }
 
     /**
@@ -164,9 +174,10 @@ String numberList = "";
      * @return List of Student objects.
      */
     public static ArrayList<Student> CreateStudentArray(ArrayList<String> names, ArrayList<Integer> heights, ArrayList<Integer> gradeLevels, ArrayList<String> favoriteColors, ArrayList<BankAccount> bankAccounts) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        ArrayList<Student> students = new ArrayList<Student>();
+        for(int i = 0; i<names.size(); i++){
+            students.add(new Student(names.get(i), heights.get(i), gradeLevels.get(i), favoriteColors.get(i), bankAccounts.get(i)));
+        return students;
     }
 
     /**
