@@ -15,10 +15,9 @@ public class ShapeMaker {
     public static String PrintSquare(int size)
     {
         String pattern = "";
-        for(int i = 0; i<5; i++)
-            for(int r = 0; r<5; r++)
-                pattern += " *";
-
+        for(int i = 0; i<size; i++)
+            for(int r = 0; r<size; r++)
+                pattern += "* ";
         return pattern;
     }
 
@@ -37,10 +36,11 @@ public class ShapeMaker {
     public static String PrintRectangle(int length, int height)
     {
         String pattern = "";
-        for(int i = 0; i<length; i++)
-            for(int r = 0; r<height; i++){
-                pattern += " *";
+        for(int i = 0; i<height; i++) {
+            for (int r = 0; r < length; r++) {
+                pattern += "* ";
             }
+        }
         return pattern;
     }
 
@@ -59,8 +59,12 @@ public class ShapeMaker {
     public static String PrintRightTriangle(int height)
     {
         String pattern = "";
-        for(int i= 1; i <= height; i++)
-            pattern += "*";
+        for(int i= 0; i < height; i++) {
+            for (int r = i; r < i; r++) ;
+            {
+                pattern += "* ";
+            }
+        }
         return pattern;
     }
 
@@ -78,8 +82,13 @@ public class ShapeMaker {
      */
     public static String PrintInvertedRightTriangle(int height)
     {
-        // write your code here
-        return "";
+        String pattern = "* ";
+        for(int i = height; i>height; i--){
+            for(int r= i; r< height; r++){
+                pattern +="* ";
+            }
+        }
+        return pattern;
     }
 
     /**

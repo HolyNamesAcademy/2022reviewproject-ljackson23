@@ -28,7 +28,7 @@ public class ArrayListPractice {
      * @return The last element in the list.
      */
     public static int GetLast(ArrayList<Integer> numbers) {
-        int l = numbers.size();
+        int l = numbers.size()-1;
         return numbers.get(l);
     }
 
@@ -148,7 +148,7 @@ String numberList = "";
      * @return The tallest student in the list.
      */
     public static Student GetTallestStudent(ArrayList<Student> students) {
-        int tallest = stuents.get(0).GetHeight();
+        int tallest = students.get(0).GetHeight();
         for (int i = 0; i < students.size(); i++) {
             if (students.get(i).GetHeight() > tallest)
                 tallest = students.get(i).GetHeight();
@@ -215,8 +215,8 @@ String numberList = "";
      */
     public static void UpdateFavoriteColor(ArrayList<Student> students, String name, String newFavoriteColor) {
         for(int i = 0; i< students.size(); i++){
-            if(students.getName().equals(name)){
-                students.SetFavoriteColor(newFavoriteColor);
+            if(students.get(i).GetName().equals(name)){
+                students.get(i).SetFavoriteColor(newFavoriteColor);
             }
         }
     }
@@ -251,12 +251,14 @@ String numberList = "";
      */
     public static boolean TransferMoney(ArrayList<Student> students, String fromStudentName, String toStudentName, double amount) {
         boolean transfered = false;
-        for(int i = 0; i<students.size(); i++)
-            if(students.get(i).GetName().equals(fromStudentName))
+        for (int i = 0; i < students.size(); i++)
+            if (students.get(i).GetName().equals(fromStudentName))
                 students.get(i).GetBankAccount().Withdraw(amount);
-        for(int i = 0; i<students.size(); i++){
-            if(students.get(i).GetName().equals(toStudentName))
+        for (int i = 0; i < students.size(); i++) {
+            if (students.get(i).GetName().equals(toStudentName))
                 students.get(i).GetBankAccount().Deposit(amount);
+            return transfered;
+        }
         return transfered;
     }
 
@@ -287,13 +289,3 @@ String numberList = "";
     }
 }
 
-    public static String GetFavoriteColorOfStudent(ArrayList<Student> students, String name) {
-        string color = "";
-        for(int i = 0; i< students.size(), i++){
-            if(students.get(i).equals(name))
-                color =
-
-
-        }
-    }
-    }
