@@ -106,8 +106,14 @@ public class ShapeMaker {
 
     public static String PrintBackwardsRightTriangle(int height)
     {
-        // write your code here
-        return "";
+        String pattern = "";
+        for(int c = 0; c< height; c++){
+            for(int r = 0; r<height; r++){
+                if(r == c)
+                    pattern += "* ";
+            }
+        }
+        return pattern;
     }
 
     /**
