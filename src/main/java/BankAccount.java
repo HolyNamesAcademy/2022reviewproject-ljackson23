@@ -42,12 +42,12 @@ public class BankAccount {
      */
     public double Deposit(double amount)
     {
-        if(amount>0){
-        accountBalance+= amount;
-        return accountBalance; }
-        else System.out.println("Sorry, the amount deposited must be greater than 0");
-        return 0;
-
+        if(amount<0){
+            System.out.println("Sorry, the amount deposited must be greater than 0");
+            return 0;
+        }
+        else accountBalance += amount;
+        return accountBalance;
     }
 
     /**
