@@ -47,7 +47,7 @@ public class BankAccount {
             return 0;
         }
         else accountBalance += amount;
-        return accountBalance;
+        return amount;
     }
 
     /**
@@ -75,7 +75,7 @@ public class BankAccount {
             System.out.println("Sorry, you cannot withdraw more than the account balance");
             return 0;
         }
-        return accountBalance;
+        return amount;
     }
 
     /**
@@ -104,6 +104,7 @@ public class BankAccount {
         }
         else
             interest = accountBalance * numYears * interestRate;
+        accountBalance +=interest;
         return interest;
     }
 

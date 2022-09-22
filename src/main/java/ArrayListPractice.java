@@ -98,17 +98,15 @@ String numberList = "";
         if (first == last) {
             return numList;
         }
-        if (first > last) {
+        if (last<first) {
             return numList;
-        } else {
-            numList.add(first);
-            for (int i = 1; i < last; i++) {
-                int begin = first;
-                numList.add(begin++);
-                return numList;
-            }
         }
-        return null;
+        else {
+            for (int i = first; i < last; i++){
+                numList.add(i);
+            }
+            return numList;
+        }
     }
 
     /**
@@ -177,9 +175,9 @@ String numberList = "";
         ArrayList<Student> students = new ArrayList<Student>();
         for (int i = 0; i < names.size(); i++) {
             students.add(new Student(names.get(i), heights.get(i), gradeLevels.get(i), favoriteColors.get(i), bankAccounts.get(i)));
-            return students;
         }
-        return null;
+        return students;
+
     }
 
     /**
@@ -196,14 +194,18 @@ String numberList = "";
      */
     public static String GetTeamsString(ArrayList<ArrayList<Student>> teams) {
         String listedTeams = "";
-        for (int r = 0; r < teams.size(); r++) {
-            for (int c = 0; c < teams.get(r).size(); c++) {
-                listedTeams = teams.get(c) + ",";
+        for (int i = 0; i < teams.size(); i++) {
+            ArrayList<Student> team = teams.get(i);
+            listedTeams += "Team " + (i + 1) + ": ";
+            for (int j = 0; j < team.size(); j++) {
+                listedTeams += team.get(j).GetName();
+                if (j <= team.size() - 2) { // should end
+                    listedTeams += ", ";
+                }
             }
-            return listedTeams;
-            //this is so wrong its kinda funny
+            listedTeams += "\n";
         }
-        return null;
+        return listedTeams;
     }
 
     /**
@@ -249,17 +251,27 @@ String numberList = "";
      * @return true if the transfer was successful, i.e. the student to transfer money from
      *     had sufficient funds in their account. Otherwise, false.
      */
-    public static boolean TransferMoney(ArrayList<Student> students, String fromStudentName, String toStudentName, double amount) {
-        boolean transfered = false;
-        for (int i = 0; i < students.size(); i++)
-            if (students.get(i).GetName().equals(fromStudentName))
-                students.get(i).GetBankAccount().Withdraw(amount);
-        for (int i = 0; i < students.size(); i++) {
-            if (students.get(i).GetName().equals(toStudentName))
-                students.get(i).GetBankAccount().Deposit(amount);
-            return transfered;
+    public static boolean TransferMoney(ArrayList<Student> students, String fromStudentName, String toStudentName, double amount){
+        Student from = getStudent(students, fromStudentName);
+        Student to = getStudent(students, toStudentName);
+        // find the deposit num
+        if (from != null && to != null) {
+            double money = from.GetBankAccount().Withdraw(amount);
+            if (money == amount) {
+                to.GetBankAccount().Deposit(amount);
+                return true;
+            }
         }
-        return transfered;
+        return false;
+    }
+    // helper method for the TransferMoney method that returns a Student with a given name
+    private static Student getStudent(ArrayList<Student> students, String name) {
+        for (Student student : students) {
+            if (student.GetName().equals(name)) {
+                return student;
+            }
+        }
+        return null;
     }
 
     /**
@@ -269,9 +281,10 @@ String numberList = "";
      * @param students The list of students to advance to the next grade.
      */
     public static void UpdateGradeLevels(ArrayList<Student> students) {
-
-        // write your code above and remove the line below
-        throw new UnsupportedOperationException();
+        for (int i = 0; i< students.size(); i++){
+            int grade = students.get(i).GetGradeLevel();
+            students.get(i).SetGradeLevel(grade++);
+        }
     }
 
     /**
