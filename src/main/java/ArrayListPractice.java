@@ -254,7 +254,6 @@ String numberList = "";
     public static boolean TransferMoney(ArrayList<Student> students, String fromStudentName, String toStudentName, double amount){
         Student from = getStudent(students, fromStudentName);
         Student to = getStudent(students, toStudentName);
-        // find the deposit num
         if (from != null && to != null) {
             double money = from.GetBankAccount().Withdraw(amount);
             if (money == amount) {
@@ -281,10 +280,7 @@ String numberList = "";
      * @param students The list of students to advance to the next grade.
      */
     public static void UpdateGradeLevels(ArrayList<Student> students) {
-        for (int i = 0; i< students.size(); i++){
-            int grade = students.get(i).GetGradeLevel();
-            students.get(i).SetGradeLevel(grade++);
-        }
+        throw new UnsupportedOperationException();
     }
 
     /**
